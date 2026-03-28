@@ -1,5 +1,71 @@
 <?php
 
+// Load theme blocks in wp-content/themes/jadoo-wp/blocks/
+if ( function_exists( 'wp_register_block_types_from_metadata_collection' ) ) {
+	wp_register_block_types_from_metadata_collection( __DIR__ . '/blocks/build', __DIR__ . '/blocks/build/blocks-manifest.php' );
+	return;
+}
+
+
+
+function my_plugin_register_patterns() {
+	register_block_pattern(
+		'my-plugin/feature-section',
+		array(
+			'title'         => __( 'Feature Section', 'my-plugin' ),
+			'description'   => __( 'A three-column feature section with icons and descriptions', 'my-plugin' ),
+			'categories'    => array( 'featured' ),
+			'keywords'      => array( 'features', 'services', 'columns' ),
+			'viewportWidth' => 1280,
+			'content'       => '
+				<!-- wp:heading {"textAlign":"center"} -->
+				<h2 class="has-text-align-center">Our Features</h2>
+				<!-- /wp:heading -->
+
+				<!-- wp:columns -->
+				<div class="wp-block-columns">
+					<!-- wp:column -->
+					<div class="wp-block-column">
+						<!-- wp:heading {"level":3} -->
+						<h3>Fast</h3>
+						<!-- /wp:heading -->
+						
+						<!-- wp:paragraph -->
+						<p>Lightning-fast performance for your users.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column -->
+					<div class="wp-block-column">
+						<!-- wp:heading {"level":3} -->
+						<h3>Secure</h3>
+						<!-- /wp:heading -->
+						
+						<!-- wp:paragraph -->
+						<p>Built with security best practices in mind.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
+
+					<!-- wp:column -->
+					<div class="wp-block-column">
+						<!-- wp:heading {"level":3} -->
+						<h3>Scalable</h3>
+						<!-- /wp:heading -->
+						
+						<!-- wp:paragraph -->
+						<p>Grows with your business needs.</p>
+						<!-- /wp:paragraph -->
+					</div>
+					<!-- /wp:column -->
+				</div>
+				<!-- /wp:columns -->
+			',
+		)
+	);
+}
+add_action( 'init', 'my_plugin_register_patterns' );
 // add_theme_support( 'disable-layout-styles' );
 
 // add_action( 'acf/init', 'my_register_blocks' );
