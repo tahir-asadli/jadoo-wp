@@ -1,6 +1,6 @@
 # Makefile for Tailwind CSS build
 
-TAILWIND_INPUT=./src/input.css
+TAILWIND_INPUT=./src/tailwind.css
 TAILWIND_OUTPUT=./assets/css/tailwind.css
 
 .PHONY: tailwind-watch tailwind-build
