@@ -1,0 +1,34 @@
+{
+	"$schema": "../../../block-schema.json",
+	"apiVersion": 3,
+	"name": "create-block/service",
+	"version": "0.1.0",
+	"title": "Service",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {},
+	"variations": [
+		{
+			"name": "default",
+			"title": "Default",
+			"attributes": {}
+		},
+		{
+			"name": "with-background",
+			"title": "With Background",
+			"attributes": {
+				"backgroundColor": "primary"
+			}
+		}
+	],
+	"textdomain": "service",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
